@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <img src="#">
+
+<script>
+    const img = document.querySelector('img');
+    // My API key: BLF5APe8EAZcLuzWiIQFOcXJIQ65HFTe
+    fetch('https://api.giphy.com/v1/gifs/translate?api_key=BLF5APe8EAZcLuzWiIQFOcXJIQ65HFTe&s=cats', {mode: 'cors'})
+      .then(function(response) {
+        return response.json();
+      })
+    // Get the data
+      .then(function(response) {
+        // To get to the data we need to drill down through the layers of the object until we find what we want
+        img.src = response.data.images.original.url
+      });
+  </script>
+</body>
+</html>
